@@ -1,0 +1,382 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+    <title>Путеводитель по Атырау — нефтяная столица Казахстана</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', 'Roboto', 'Helvetica Neue', sans-serif;
+            background: #f4f7fb;
+            color: #1e2f3e;
+            line-height: 1.5;
+            padding: 2rem 1rem;
+        }
+
+        .guide-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 28px;
+            box-shadow: 0 20px 35px -12px rgba(0, 0, 0, 0.1);
+            padding: 2rem 2rem 2.5rem;
+            transition: all 0.2s;
+        }
+
+        /* Типографика */
+        h1 {
+            font-size: 2.4rem;
+            font-weight: 800;
+            color: #0b3b2f;
+            margin-bottom: 1.5rem;
+            border-left: 6px solid #e6b422;
+            padding-left: 1.2rem;
+            letter-spacing: -0.3px;
+        }
+
+        h2 {
+            font-size: 1.7rem;
+            font-weight: 700;
+            margin: 1.5rem 0 0.8rem 0;
+            color: #1b5a4c;
+            border-bottom: 2px solid #dce9f0;
+            padding-bottom: 0.3rem;
+        }
+
+        h3 {
+            font-size: 1.3rem;
+            font-weight: 600;
+            margin: 1.2rem 0 0.5rem;
+            color: #2c5a6e;
+        }
+
+        /* Нумерованный список (основные разделы) */
+        .numbered-list {
+            list-style: none;
+            padding-left: 0;
+            margin: 1.5rem 0;
+        }
+
+        .numbered-list > li {
+            margin-bottom: 1.8rem;
+            font-size: 1rem;
+        }
+
+        .list-heading {
+            font-weight: 700;
+            font-size: 1.2rem;
+            color: #1c6e5c;
+            display: block;
+            margin-bottom: 0.5rem;
+        }
+
+        .sub-links {
+            margin-left: 1.2rem;
+            padding-left: 0.8rem;
+            border-left: 2px solid #cbdbe2;
+        }
+
+        .sub-links p {
+            margin: 0.4rem 0;
+        }
+
+        /* Обычный текст, абзацы */
+        p {
+            margin-bottom: 0.9rem;
+            text-align: justify;
+        }
+
+        .city-description {
+            background: #fef8e7;
+            padding: 1rem 1.4rem;
+            border-radius: 24px;
+            margin: 1rem 0;
+            border-left: 4px solid #e6b422;
+        }
+
+        /* Ссылки */
+        a {
+            color: #2a7f6e;
+            text-decoration: none;
+            border-bottom: 1px solid transparent;
+            transition: 0.2s;
+            word-break: break-word;
+        }
+
+        a:hover {
+            color: #0f4e41;
+            border-bottom-color: #0f4e41;
+        }
+
+        /* Изображения */
+        .img-block {
+            margin: 1rem 0 1.2rem;
+            text-align: center;
+        }
+
+        .img-block img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 18px;
+            box-shadow: 0 8px 18px rgba(0, 0, 0, 0.1);
+            background: #f2f2f2;
+            display: inline-block;
+        }
+
+        .img-caption {
+            font-size: 0.85rem;
+            color: #5b6e7c;
+            margin-top: 0.4rem;
+            font-style: italic;
+        }
+
+        /* Таблица достопримечательностей */
+        .attractions-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 1.5rem 0;
+            background: white;
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.03);
+        }
+
+        .attractions-table th,
+        .attractions-table td {
+            border: 1px solid #dde4ec;
+            padding: 1rem;
+            vertical-align: top;
+        }
+
+        .attractions-table th {
+            background: #eef3f0;
+            font-weight: 700;
+            font-size: 1.1rem;
+            color: #1b5a4c;
+            text-align: center;
+        }
+
+        .attractions-table td:first-child {
+            width: 30%;
+            background-color: #fefcf7;
+        }
+
+        .attraction-img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 14px;
+            margin-bottom: 0.6rem;
+            display: block;
+        }
+
+        .attraction-title {
+            font-weight: 800;
+            font-size: 1.05rem;
+            color: #1a4e41;
+            margin-top: 0.5rem;
+            display: inline-block;
+        }
+
+        /* Гимн */
+        .anthem {
+            background: #faf3e0;
+            padding: 1.3rem 1.8rem;
+            border-radius: 28px;
+            margin: 1.2rem 0;
+            font-family: 'Georgia', serif;
+            text-align: center;
+            white-space: pre-line;
+            line-height: 1.6;
+        }
+
+        .anthem p {
+            margin: 0.4rem 0;
+            text-align: center;
+        }
+
+        .home-link {
+            display: inline-block;
+            margin-top: 2rem;
+            background: #e9ecef;
+            padding: 0.6rem 1.5rem;
+            border-radius: 60px;
+            font-weight: 500;
+            transition: 0.2s;
+        }
+
+        .home-link:hover {
+            background: #d4dfe6;
+            border-bottom: none;
+        }
+
+        hr {
+            margin: 1.8rem 0 1rem;
+            border: none;
+            height: 1px;
+            background: linear-gradient(to right, #cbdbe2, transparent);
+        }
+
+        .small-note {
+            font-size: 0.75rem;
+            color: #7f8c8d;
+            margin-top: 1rem;
+            text-align: center;
+            border-top: 1px solid #e2edf2;
+            padding-top: 1rem;
+        }
+
+        @media (max-width: 700px) {
+            .guide-container {
+                padding: 1.2rem;
+            }
+            h1 {
+                font-size: 1.8rem;
+            }
+            .attractions-table th,
+            .attractions-table td {
+                padding: 0.7rem;
+                display: table-cell;
+            }
+            .attractions-table {
+                font-size: 0.9rem;
+            }
+        }
+    </style>
+</head>
+<body>
+<div class="guide-container">
+    <!-- ГЛАВНЫЙ ЗАГОЛОВОК -->
+    <h1>Путеводитель по Атырау</h1>
+
+    <!-- ОСНОВНОЙ НУМЕРОВАННЫЙ СПИСОК РАЗДЕЛОВ (структура 1..8) -->
+    <ul class="numbered-list" style="list-style: none;">
+        <!-- 1. Официальный сайт города -->
+        <li>
+            <span class="list-heading">1. Официальный сайт города:</span>
+            <div class="sub-links">
+                <a href="https://azh.kz/kz" target="_blank" rel="noopener noreferrer">https://azh.kz/kz</a>
+            </div>
+        </li>
+
+        <!-- 2. Дополнительные информационные ресурсы, посвященные городу -->
+        <li>
+            <span class="list-heading">2. Дополнительные информационные ресурсы, посвященные городу:</span>
+            <div class="sub-links">
+                <p>Единая платформа интернет-ресурсов государственных органов:<br>
+                <a href="https://www.gov.kz/" target="_blank" rel="noopener noreferrer">https://www.gov.kz/</a></p>
+                <p>Информационный портал о туризме в Казахстане и за рубежом:<br>
+                <a href="https://tengrinews.kz/tengritravel/" target="_blank" rel="noopener noreferrer">https://tengrinews.kz/tengritravel/</a></p>
+                <p>Центр исследования историко-культурного наследия Атырауской области:<br>
+                <a href="https://atyrau-heritage.kz/ru" target="_blank" rel="noopener noreferrer">https://atyrau-heritage.kz/ru</a></p>
+            </div>
+        </li>
+
+        <!-- 3. Общие сведения о городе -->
+        <li>
+            <span class="list-heading">3. Общие сведения о городе:</span>
+            <div class="city-description">
+                <p>Атырау — это административный центр Атырауской области. Широкой публике город больше известен как «нефтяная столица» Республики Казахстан. Именно здесь впервые на территории современного Казахстана еще в 17 веке начали разрабатывать первые залежи нефти. Тогда по имени основателя, город получил название Гурьев (до 1991 года).</p>
+            </div>
+        </li>
+
+        <!-- 4. Карта города + вид со спутника (изображения) -->
+        <li>
+            <span class="list-heading">4. Карта города:</span>
+            <div class="img-block">
+                <img src="https://avatars.mds.yandex.net/i?id=31b514617739c2f53a12d4730fa1f2f9_l-5251456-images-thumbs&n=13" alt="Карта города Атырау" style="max-width:100%; border-radius: 16px;">
+            </div>
+            <span style="font-weight: 600;">Вид со спутника:</span>
+            <div class="img-block">
+                <img src="https://avatars.mds.yandex.net/i?id=976ba62a0b8250797162dafdfdc773391762e63c-9263927-images-thumbs&n=13" alt="Вид на Атырау со спутника" style="max-width:100%; border-radius: 16px;">
+            </div>
+        </li>
+
+        <!-- 5. Историческая справка -->
+        <li>
+            <span class="list-heading">5. Историческая справка:</span>
+            <p>Город Атырау (до 1991 года — Гурьев) был основан в 1640 году ярославскими купцами Гурьевыми как деревянный острог в устье реки Урал (тогда Яик) на берегу Каспийского моря. Из-за удачного положения в дельте реки город долгое время жил за счёт рыбного промысла — здесь добывали осетра и белугу, производили чёрную икру. В 1667 году острог захватил Степан Разин, использовав его как базу для похода на Персию. В XIX веке Гурьев стал уездным городом Уральской области, а в советское время превратился в главную нефтяную столицу Казахстана: в 1943–1945 годах построили первый в республике нефтеперерабатывающий завод, а позже начали разрабатывать гигантское месторождение Тенгиз. Сейчас Атырау — крупный промышленный центр, который знаменит тем, что река Урал делит его на европейскую и азиатскую части.</p>
+        </li>
+
+        <!-- 6. Фотогалерея (одно изображение) -->
+        <li>
+            <span class="list-heading">6. Фотогалерея:</span>
+            <div class="img-block">
+                <img src="https://i.postimg.cc/7LMch0bh/photo-5402242416925940529-w.jpg" alt="Фотогалерея Атырау" style="max-width:100%; border-radius: 20px;">
+            </div>
+        </li>
+
+        <!-- 7. Достопримечательности города (таблица) -->
+        <li>
+            <span class="list-heading">7. Достопримечательности города:</span>
+            <table class="attractions-table">
+                <thead>
+                    <tr>
+                        <th>Достопримечательность</th>
+                        <th>Описание</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <!-- Центральная мечеть Имангали -->
+                    <tr>
+                        <td>
+                            <img src="https://avatars.mds.yandex.net/get-altay/859900/2a00000185af19a4bff67cd75a9d183b3412/XXL_height" alt="Центральная мечеть Имангали" class="attraction-img">
+                            <div class="attraction-title">Центральная мечеть Имангали</div>
+                        </td>
+                        <td>Главная духовная достопримечательность Атырау и один из самых выразительных образцов исламской архитектуры в регионе. Она была построена в 2000 году, когда городом руководил Имангали Тасмагамбетов, и получила имя в его честь.</td>
+                    </tr>
+                    <!-- Площадь Исатая и Махамбета -->
+                    <tr>
+                        <td>
+                            <img src="https://avatars.mds.yandex.net/i?id=f2e116bb1dc410297d6632544009d286_l-13461479-images-thumbs&n=13" alt="Площадь Исатая и Махамбета" class="attraction-img">
+                            <div class="attraction-title">Площадь Исатая и Махамбета</div>
+                        </td>
+                        <td>На центральной площади города в 1995 году возведен памятник национальным героям Исатаю Тайманову и Махамбету Утемисову, которые возглавили восстание казахов в 1836–1838 годах. Была реконструирована и обновлена, вокруг памятника создана архитектурная композиция, а у его подножия — музыкальный фонтан с подсветкой прожекторами. Вокруг расположены скамейки с навесами.</td>
+                    </tr>
+                    <!-- Пешеходный мост «10 лет Независимости» -->
+                    <tr>
+                        <td>
+                            <img src="https://www.zakon.kz/pbi/WEBP/2024-01-30/file-aa73b820-2706-40b8-853c-22e0e942383d/800x452.webp" alt="Пешеходный мост «10 лет Независимости»" class="attraction-img">
+                            <div class="attraction-title">Пешеходный мост «10 лет Независимости»</div>
+                        </td>
+                        <td>Единственный подвесной пешеходный мост через реку Урал, который занесен в Книгу рекордов Гиннесса, как «Самый длинный пешеходный мост в мире». Он был построен в 2001 году и имеет длину в 551 метр. Мост соединяет европейскую и азиатскую части города.</td>
+                    </tr>
+                    <!-- Памятник ВИА «Дос-Мукасан» -->
+                    <tr>
+                        <td>
+                            <img src="https://avatars.mds.yandex.net/get-altay/3905724/2a0000017564afa66426b3ad987eae1b5310/XXL_height" alt="Памятник ансамблю «Дос-Мукасан»" class="attraction-img">
+                            <div class="attraction-title">Памятник вокально-инструментальному ансамблю «Дос-Мукасан»</div>
+                        </td>
+                        <td>Уникальная композиция, украшающая город, состоящая из шести бронзовых скульптур, изображающих выступающих музыкантов, расположенных на гранитном постаменте. Этот памятник находится в ретро-парке, который сохраняет спокойствие и историю города и стал любимым местом молодежи.</td>
+                    </tr>
+                </tbody>
+            </table>
+        </li>
+
+        <!-- 8. Текст гимна города + музыкальный клип -->
+        <li>
+            <span class="list-heading">8. Текст гимна города:</span>
+            <div class="anthem">
+                <p>Атырау -- ардақты өлкем, арманды өлкем</p>
+                <p>Аяулап жанған көркем тұрғанда ертен</p>
+                <p>Аңсап келіп алыстап жан сырымды шертем</p>
+                <p>Толқынынмен жарысқан менде бір еркен</p>
+                <p>Аққудын қалқып әнің көңілім шалқыған</p>
+                <p>Жайықтың шоқыларын өзінмен тен бар ме екен?</p>
+                <p>Атырау - қалам, абырой, мақтанышым</p>
+                <p>Аспанда жүр шатысын Жеріме бағдарысын</p>
+                <p>Нұр қалам менің Жыр қалам менің</p>
+                <p>Мерейің болып мақтай берсің</p>
+                <p>Жарқырай берші жайнай берші</p>
+            </div>
+            <p><strong>Музыкальный клип:</strong> <a href="https://youtu.be/SakULyWQfOw?si=rkSr05IvIVcAg5SJ" target="_blank" rel="noopener noreferrer">https://youtu.be/SakULyWQfOw?si=rkSr05IvIVcAg5SJ</a></p>
+        </li>
+    </ul>
+</div>
+</body>
+</html>
